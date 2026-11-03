@@ -22,10 +22,11 @@
 
 > A **VR driver-training simulator** built in Unity at THD. The driver sits in a **Meta Quest 3** headset with a real **racing wheel and pedals**, and drives through a living city — buses, traffic and **AI pedestrians** who cross, jog and wander. Day, night, fog and rain change what the driver can see; **emergency braking (AEB) and ABS** step in; every crash is detected and the **driver's reaction time is logged**.
 
-<div align="center">
-  <img src="media/vr-demo.gif" width="85%" alt="Driving through the virtual city with pedestrians and traffic"/>
-  <br/><sub><i>Driving through the city: buses, traffic and AI pedestrians on the footpaths</i></sub>
-</div>
+### 🎬 Watch the full run (3 min)
+
+https://github.com/user-attachments/assets/f582defd-e9c4-494e-8dcd-7efc9e3e9b1d
+
+<sub>City fly-through, day and night → Level 1 → Level 2 → Level 3 → mission complete → what happens if you hit a pedestrian. Can't see the player? [Download the video](media/vr-full-demo.mp4).</sub>
 
 | 🗓️ Built | 👥 Team | 🧠 My role | 🎮 Setup |
 |:---:|:---:|:---:|:---:|
@@ -36,7 +37,8 @@
 ## 📑 Contents
 
 - [What the driver experiences](#-what-the-driver-experiences)
-- [Levels](#-levels)
+- [Hands on the wheel](#-hands-on-the-wheel)
+- [The mission: three levels](#-the-mission-three-levels)
 - [How it works](#-how-it-works)
 - [My part: pedestrians & traffic](#-my-part-pedestrians--traffic)
 - [Code](#-code)
@@ -84,8 +86,8 @@ A **HORI racing wheel and pedals**; **IK-rigged hands** follow the wheel in VR.
 </td>
 <td width="33%" align="center" valign="top">
 
-### 🧭 Guided routes
-A red guide path shows where to drive in the tutorial and scenarios.
+### 🧭 Guided missions
+Glowing checkpoint arches and on-screen goals show where to drive.
 
 </td>
 </tr>
@@ -93,12 +95,40 @@ A red guide path shows where to drive in the tutorial and scenarios.
 
 ---
 
-## 🏁 Levels
+## 🖐️ Hands on the wheel
 
-| Level | Goal |
-|:---:|---|
-| **0 · Tutorial** | Learn the wheel, pedals and the guide path |
-| **1 – 3 · Scenarios** | City drives with passenger pick-up and drop-off, getting harder level by level |
+The driver's **virtual hands are rigged with inverse kinematics** and follow the real **HORI racing wheel** — turn the wheel in the room and you see your hands turn it in VR.
+
+<div align="center">
+  <img src="media/vr-hands.gif" width="80%" alt="Virtual hands turning the steering wheel in VR"/>
+  <br/><sub><i>IK-rigged hands following the real steering wheel</i></sub>
+</div>
+
+---
+
+## 🏁 The mission: three levels
+
+A passenger-taxi mission across the city — each level gives a new goal on screen, and a glowing **checkpoint arch** shows where to go.
+
+<div align="center">
+  <img src="media/vr-levels.gif" width="80%" alt="Level 1 title and the pick-up checkpoint"/>
+  <br/><sub><i>Level 1 starts — drive to the glowing arch to pick up the passenger</i></sub>
+</div>
+
+<br/>
+
+<table>
+<tr>
+<td width="33%" align="center" valign="top"><img src="media/vr-pickup.jpg" alt="Level 1: pick up the passenger"/><br/><b>Level 1</b><br/><sub>Pick up the passenger</sub></td>
+<td width="33%" align="center" valign="top"><img src="media/vr-drop-fest.jpg" alt="Level 2: drop the passenger at the fest"/><br/><b>Level 2</b><br/><sub>Drop the passenger at the fest</sub></td>
+<td width="33%" align="center" valign="top"><img src="media/vr-level3.jpg" alt="Level 3: pick up a passenger from the fest"/><br/><b>Level 3</b><br/><sub>Pick up from the fest, drive them home</sub></td>
+</tr>
+<tr>
+<td width="33%" align="center" valign="top"><img src="media/vr-complete.jpg" alt="Mission complete message"/><br/><b>🏆 Mission complete</b><br/><sub>All levels done</sub></td>
+<td width="33%" align="center" valign="top"><img src="media/vr-target.jpg" alt="Warning about the target pedestrian"/><br/><b>⚠️ The twist</b><br/><sub>Hit the target pedestrian and you must restart</sub></td>
+<td width="33%" align="center" valign="top"><img src="media/vr-crash-msg.jpg" alt="Pedestrian hit, restarting the simulation"/><br/><b>💥 Crash detected</b><br/><sub>The simulation restarts</sub></td>
+</tr>
+</table>
 
 ---
 
@@ -172,6 +202,14 @@ Vector3 GetRandomNavMeshPoint(Vector3 center, float radius) {
 
 <table>
 <tr>
+<td width="50%"><img src="media/vr-fest-aerial.jpg" alt="Aerial view of the city and the fest ground"/></td>
+<td width="50%"><img src="media/vr-night.jpg" alt="The city road at night"/></td>
+</tr>
+<tr>
+<td align="center"><sub><b>The city</b> — fest ground, roads and buildings</sub></td>
+<td align="center"><sub><b>Night</b> — street lights and low visibility</sub></td>
+</tr>
+<tr>
 <td width="50%"><img src="media/vr-city.jpg" alt="City drive with bus and pedestrians"/></td>
 <td width="50%"><img src="media/vr-pedestrians.jpg" alt="Pedestrians on the footpath next to a bus"/></td>
 </tr>
@@ -189,10 +227,6 @@ Vector3 GetRandomNavMeshPoint(Vector3 center, float radius) {
 </tr>
 </table>
 
-<div align="center">
-<img src="media/vr-crash.jpg" width="60%" alt="Crash screen with restart button"/>
-<br/><sub><b>Crash detected</b> — the run stops and the driver restarts the level</sub>
-</div>
 
 ---
 
